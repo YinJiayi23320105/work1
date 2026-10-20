@@ -1,7 +1,6 @@
 bcrypt==3.1.7
 cffi==1.15.1
 click==8.0.4
-
 Flask==2.0.3
 Flask-Bcrypt==0.7.1
 Flask-JWT-Extended==4.4.2
@@ -11,12 +10,4 @@ importlib-metadata==4.8.3
 itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe==2.0.1
-pkg-resources==0.0.0
-pycparser==2.21
-PyJWT==2.4.0
-six==1.17.0
-SQLAlchemy==1.4.54
-typing-extensions==4.1.1
-Werkzeug==2.0.3
-zipp==3.6.0
 pytest
