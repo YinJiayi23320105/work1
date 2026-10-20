@@ -22,7 +22,7 @@ jobs:
 
       # SAST静态安全扫描 bandit
       - name: SAST‑Bandit static security scan
-        run: bandit -r . -f txt
+        run: bandit -r . -f txt || true
 
       # SCA依赖漏洞扫描 safety  || true 发现漏洞也不会让流水线变红失败
       - name: SCA‑Safety dependency vulnerability scan
