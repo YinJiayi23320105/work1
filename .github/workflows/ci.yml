@@ -2,12 +2,12 @@ name: CI
 on: [push, pull_request]
 jobs:
   test-and-security:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
 
@@ -17,15 +17,13 @@ jobs:
           pip install -r requirements.txt
           pip install bandit safety
 
-      - name: Run pytest unit‑test
+      - name: Run pytest unit-test
         run: pytest test_app.py -v
 
       # SAST静态安全扫描 bandit
-      - name: SAST‑Bandit static security scan
+      - name: SAST-Bandit static security scan
         run: bandit -r . -f txt || true
 
-      # SCA依赖漏洞扫描 safety  || true 发现漏洞也不会让流水线变红失败
-      - name: SCA‑Safety dependency vulnerability scan
+      # SCA依赖漏洞扫描 safety
+      - name: SCA-Safety dependency vulnerability scan
         run: safety check || true
-
-
