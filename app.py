@@ -4,7 +4,10 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config["JWT_SECRET_KEY"] = "super-secret-key"
+
+import os
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", os.urandom(24).hex())
+
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
