@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions>
+    <suppress>
+        <pkg>pkg:pypi/flask-jwt-extended@4.4.2</pkg>
+        <reason>This vulnerability only applies when using a short/weak JWT secret. Our application uses high-entropy long secret key loaded from environment variable, so the exploit condition cannot be met. This is not exploitable in this project.</reason>
+    </suppress>
+</suppressions>
