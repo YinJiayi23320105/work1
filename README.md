@@ -58,7 +58,7 @@ Pipeline jobs include:
 ### API test screenshots
 - Access protected endpoint without token (401 Unauthorized)
 ![No token access get 401](./images/api_no_token_401.png)
-
+ 
 - User register success
 ![Register success](./images/api_register_ok.png)
 
