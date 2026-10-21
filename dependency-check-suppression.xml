@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//OWASP//Dependency Check Suppression//EN"
+    "https://jeremylong.github.io/DependencyCheck/dependency‑suppression.1.2.xsd">
 <suppressions>
     <suppress>
-        <pkg>pkg:pypi/flask-jwt-extended@4.4.2</pkg>
-        <reason>This vulnerability only applies when using a short/weak JWT secret. Our application uses high-entropy long secret key loaded from environment variable, so the exploit condition cannot be met. This is not exploitable in this project.</reason>
+        <pkg>pkg:pypi/flask‑jwt‑extended@4.4.2</pkg>
+        <reason>This vulnerability only applies when using a short/weak JWT secret. Our application uses high‑entropy long secret key loaded from environment variable, so the exploit condition cannot be met. This is not exploitable in this lab project.</reason>
     </suppress>
 </suppressions>
