@@ -36,6 +36,7 @@ jobs:
             --enableExperimental
             --exclude "**/.github/**"
             --failOnCVSS 10
+            --suppression dependency-check-suppression.xml
 
       # 上传HTML报告作为流水线产物 artifact
       - name: Upload Dependency‑Check HTML report artifact
