@@ -24,19 +24,19 @@ jobs:
       - name: SAST‑Bandit static security scan
         run: bandit -r . -x test_app.py -f txt || true
 
-      # ========= SCA OWASP Dependency‑Check (Lab manual required tool) =========
+      # ========= SCA OWASP Dependency‑Check =========
       - name: SCA‑OWASP Dependency‑Check scan
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: "Work1‑Secure‑REST‑API"
-          scan: "."
+          path: "."
           format: "HTML"
           out: reports
-          failOnCVSS: 10
-          autoUpdate: true
           args: >
             --enableExperimental
             --exclude "**/.github/**"
+            --failOnCVSS 10
+            --autoUpdate
 
       # 上传HTML报告作为流水线产物 artifact
       - name: Upload Dependency‑Check HTML report artifact
