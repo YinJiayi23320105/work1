@@ -42,7 +42,7 @@ Pipeline jobs include:
     - Detected one high‑severity entry in `Flask‑JWT‑Extended==4.4.2`. This CVE‑2025‑45770 exploit condition requires short weak JWT secret. Our project uses long high‑entropy secret loaded from environment variable, so this vulnerability cannot be triggered in our lab application. Upgrading this package will cause dependency resolution conflicts, risk breaking existing application functions, risk‑mitigation achieved via secure configuration.
 
 > Last successful pipeline run link:
-> [https://github.com/YinJiayi23320105/work1/actions/runs/39541085544/job/119028735003](https://github.com/YinJiayi23320105/work1/actions/runs/39541085544/job/119028735003)
+> https://github.com/YinJiayi23320105/work1/actions/runs/39541085544/job/119028735003
 
 ### Screenshots of security scanner reports
 
@@ -53,12 +53,12 @@ Pipeline jobs include:
 ![Bandit sast result no issues](./images/sast_bandit_result.png)
 
 #### 3. SCA‑OWASP Dependency‑Check HTML report
-![Dependency‑Check sca report](/images/sca_dependencycheck_report.png)
+![Dependency‑Check sca report](./images/sca_dependencycheck_report.png)
 
 ### API test screenshots
 - Access protected endpoint without token (401 Unauthorized)
 ![No token access get 401](./images/api_no_token_401.png)
- 
+
 - User register success
 ![Register success](./images/api_register_ok.png)
 
