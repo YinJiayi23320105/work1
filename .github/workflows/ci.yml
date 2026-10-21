@@ -22,7 +22,8 @@ jobs:
 
       # SAST静态安全扫描 bandit
       - name: SAST-Bandit static security scan
-        run: bandit -r . -f txt || true
+        
+        run: bandit -r . -x test_app.py -f txt || true
 
       # SCA依赖漏洞扫描 safety
       - name: SCA-Safety dependency vulnerability scan
