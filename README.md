@@ -53,7 +53,7 @@ Pipeline jobs include:
 ![Bandit sast result no issues](./images/sast_bandit_result.png)
 
 #### 3. SCA‑OWASP Dependency‑Check HTML report
-![Dependency‑Check sca report](./images/sca_dependencycheck_report.png)
+![Dependency‑Check sca report](/images/sca_dependencycheck_report.png)
 
 ### API test screenshots
 - Access protected endpoint without token (401 Unauthorized)
