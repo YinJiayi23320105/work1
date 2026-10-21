@@ -36,7 +36,6 @@ jobs:
             --enableExperimental
             --exclude "**/.github/**"
             --failOnCVSS 10
-            --autoUpdate
 
       # 上传HTML报告作为流水线产物 artifact
       - name: Upload Dependency‑Check HTML report artifact
@@ -46,3 +45,4 @@ jobs:
           name: OWASP‑Dependency‑Check‑Report
           path: reports
           retention-days: 30
+
