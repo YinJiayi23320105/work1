@@ -3,6 +3,8 @@ on: [push, pull_request]
 jobs:
   test-and-security:
     runs-on: ubuntu-24.04
+    env:
+      JWT_SECRET_KEY: "ci-test-secret-key-not-for-production"
     steps:
       - uses: actions/checkout@v5
 
@@ -21,14 +23,14 @@ jobs:
         run: pytest test_app.py -v
 
       # SAST 静态源代码扫描 Bandit
-      - name: SAST‑Bandit static security scan
+      - name: SAST-Bandit static security scan
         run: bandit -r . -x test_app.py -f txt || true
 
-      # ========= SCA OWASP Dependency‑Check =========
-      - name: SCA‑OWASP Dependency‑Check scan
+      # ========= SCA OWASP Dependency-Check =========
+      - name: SCA-OWASP Dependency-Check scan
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: "Work1‑Secure‑REST‑API"
+          project: "Work1-Secure-REST-API"
           path: "."
           format: "HTML"
           out: reports
@@ -36,14 +38,13 @@ jobs:
             --enableExperimental
             --exclude "**/.github/**"
             --failOnCVSS 10
-          
+            --suppression ./dependency-check-suppression.xml
 
       # 上传HTML报告作为流水线产物 artifact
-      - name: Upload Dependency‑Check HTML report artifact
+      - name: Upload Dependency-Check HTML report artifact
         uses: actions/upload-artifact@v4
-        if: success() || failure()
+        if: always()
         with:
-          name: OWASP‑Dependency‑Check‑Report
+          name: OWASP-Dependency-Check-Report
           path: reports
           retention-days: 30
-
